@@ -1,0 +1,23 @@
+﻿[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "link-digest"
+version = "0.1.0"
+description = "Turn any link (video or article) into a local digest: metadata, transcript, key frames."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "zone63829" }]
+dependencies = ["yt-dlp>=2024.12.13"]
+keywords = ["cli", "digest", "transcript", "video", "ffmpeg", "yt-dlp"]
+
+[project.optional-dependencies]
+asr = ["faster-whisper>=1.0"]
+
+[project.scripts]
+link-digest = "link_digest.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
